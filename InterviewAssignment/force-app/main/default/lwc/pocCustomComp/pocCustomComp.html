@@ -1,0 +1,24 @@
+<template>
+   
+    
+        <template if:true={showSpinner}>
+            <lightning-spinner variant="brand" alternative-text="Loading"></lightning-spinner>
+        </template>
+    
+
+
+
+    <div class="picklist-container">
+        <lightning-combobox
+                name="oppstage"
+                label=""
+                value={selectedStage}
+                placeholder="--None--"
+                options={options}
+                onchange={handleChange}
+                >
+        </lightning-combobox>
+    </div>
+
+   
+</template>

@@ -1,0 +1,18 @@
+.customPagination {
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.customPagination>a {
+    padding: 5px 10px;
+}
+
+.tempClass{
+    padding: 17px;
+}
+.slds-truncate {
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}

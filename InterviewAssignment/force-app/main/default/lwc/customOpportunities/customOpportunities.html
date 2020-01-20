@@ -1,0 +1,89 @@
+<template>
+    
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+          <div class="slds-page-header__col-title">
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container">
+                    <lightning-icon icon-name="utility:connected_apps" alternative-text="LWC" ></lightning-icon>
+                  <span class="slds-assistive-text">Universal Container Opporunities</span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <div class="slds-page-header__name">
+                  <div class="slds-page-header__name-title">
+                    <h1>
+                      <span class="slds-page-header__title" title="Universal Container Opporunities">Universal Container Opporunities</span>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <lightning-card>
+
+        <lightning-layout>
+
+                <lightning-layout-item size="10" padding="around-small">
+                       
+                        <lightning-input class="searchbar"
+                                         label=""
+                                         value=""
+                                         placeholder="Search Opportunity Name"
+                                         onchange={handleKeyWordChange}>
+                        </lightning-input>
+                    
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2" padding="around-small">
+                            <lightning-button variant="brand" 
+                            label="Add an Opportunity" 
+                            onclick={createOpportunity}
+                            class="slds-align_absolute-center tempClass">
+          </lightning-button>
+                        </lightning-layout-item>
+        
+            
+
+        </lightning-layout>
+
+        
+
+        
+
+        <div class="">
+           
+        <c-poc-lightning-datatable
+                                key-field="Id"
+                                data={data}
+                                columns={columns}
+                                onsave={handleSave}
+                                sorted-by={sortBy}
+                                sorted-direction={sortDirection}
+                                onsort={handleSort}
+                                draft-values={draftValues}
+                                hide-checkbox-column="true"
+                                onrowselection={handleRowSelect}
+                                show-row-number-column="false">
+        </c-poc-lightning-datatable>
+
+            <template if:true={contact.error}>
+                <!-- handle Apex error -->
+            </template>
+        </div>
+
+        <div class="customPagination">
+                <template for:each={paginationRange} for:item="pageNumber">
+                    <a
+                        onclick={handlePaginationClick}
+                        key={pageNumber}
+                        data-target-number={pageNumber}
+                        >{pageNumber}</a
+                    >
+                </template>
+        </div>
+    </lightning-card>
+</template>
